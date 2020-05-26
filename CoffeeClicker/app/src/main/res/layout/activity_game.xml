@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+
+    <TextView
+        android:id="@+id/coffeeText"
+        android:layout_width="307dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:gravity="center_vertical"
+        android:text="Coffee - 1,000,009,209,000,000"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/coffeeButton"
+        android:layout_width="384dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="24dp"
+        android:text="coffeeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeText" />
+
+    <Button
+        android:id="@+id/buyButton1"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Buy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
+
+    <Button
+        android:id="@+id/buyButton2"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:text="Buy"
+        app:layout_constraintStart_toEndOf="@+id/buyButton1"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
+
+    <Button
+        android:id="@+id/buyButton3"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:text="Buy"
+        app:layout_constraintStart_toEndOf="@+id/buyButton2"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
+
+    <Button
+        android:id="@+id/buyButton4"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:text="Buy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buyButton3"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
+
+    <Button
+        android:id="@+id/buyButton5"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Buy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buyButton1" />
+
+    <Button
+        android:id="@+id/buyButton6"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:text="Buy"
+        app:layout_constraintStart_toEndOf="@+id/buyButton5"
+        app:layout_constraintTop_toBottomOf="@+id/buyButton2" />
+
+    <Button
+        android:id="@+id/buyButton7"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:text="Buy"
+        app:layout_constraintStart_toEndOf="@+id/buyButton6"
+        app:layout_constraintTop_toBottomOf="@+id/buyButton3" />
+
+    <Button
+        android:id="@+id/buyButton8"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Buy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buyButton7"
+        app:layout_constraintTop_toBottomOf="@+id/buyButton4" />
+
+    <Button
+        android:id="@+id/buyButton9"
+        android:layout_width="280dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="16dp"
+        android:text="Void"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
