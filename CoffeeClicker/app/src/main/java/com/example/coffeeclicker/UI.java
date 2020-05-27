@@ -14,36 +14,5 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.coffeeclicker.R;
 
 public class UI extends AppCompatActivity {
-    static int coffee;
 
-    TextView coffeeText;
-
-    public UI(Context context)
-    {
-        SetCoffee(0);
-
-        coffeeText = (TextView)findViewById(R.id.coffeeText);
-
-        UpdateUI();
-    }
-
-    public void UpdateUI()
-    {
-        coffeeText.setText("Coffee - " + coffee);
-    }
-
-    public void SetCoffee(int amount)
-    {
-        coffee = amount;
-    }
-
-    public void SddCoffee(int amount)
-    {
-        coffee += amount;
-    }
-
-    public void SubtractCoffee(int amount)
-    {
-        coffee -= amount;
-    }
 }

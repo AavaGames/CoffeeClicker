@@ -29,10 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Play.setVisibility(View.VISIBLE);
 
         imageView = (ImageView)findViewById(R.id.backgroundImage);
-
-        //Bitmap bmp = BitmapFactory.decodeResource(this.getResources(), R.drawable.background);
-        //bmp = Bitmap.createScaledBitmap(bmp, bmp.getWidth()*20, bmp.getHeight()*20, false);
-        //imageView.setImageBitmap(bmp);
+        Bitmap bmp = BitmapFactory.decodeResource(this.getResources(), R.drawable.background);
+        bmp = Bitmap.createScaledBitmap(bmp, bmp.getWidth()*5, bmp.getHeight()*5, false);
+        imageView.setImageBitmap(bmp);
     }
 
     @Override

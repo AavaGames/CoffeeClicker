@@ -7,119 +7,220 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="409dp"
+        android:layout_height="730dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/coffeeText"
-        android:layout_width="307dp"
-        android:layout_height="30dp"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
         android:layout_marginTop="16dp"
         android:fontFamily="monospace"
         android:gravity="center_vertical"
         android:text="Coffee - 1,000,009,209,000,000"
         android:textAllCaps="false"
-        android:textSize="16sp"
+        android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/coffeeButton"
-        android:layout_width="384dp"
+        android:layout_width="385dp"
         android:layout_height="350dp"
         android:layout_marginTop="24dp"
-        android:text="coffeeButton"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/coffeeText" />
+        app:layout_constraintTop_toBottomOf="@+id/coffeeText"
+        app:srcCompat="@drawable/coffee" />
 
     <Button
         android:id="@+id/buyButton1"
-        android:layout_width="95dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
-        android:text="Buy"
+        android:background="#00FFFFFF"
+        android:lineSpacingExtra="4sp"
+        android:text="Coffee Maker\n+1 Coffee/s\nCost: 25 Coffee"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
 
     <Button
         android:id="@+id/buyButton2"
-        android:layout_width="95dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:text="Buy"
+        android:background="#00FFFFFF"
+        android:lineSpacingExtra="4sp"
+        android:text="Coffee Maker\n+1 Coffee/s\nCost: 25 Coffee"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/buyButton1"
         app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
 
     <Button
         android:id="@+id/buyButton3"
-        android:layout_width="95dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
+        android:background="#00FFFFFF"
         android:text="Buy"
-        app:layout_constraintStart_toEndOf="@+id/buyButton2"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/buyImage4"
         app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
 
     <Button
         android:id="@+id/buyButton4"
-        android:layout_width="95dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
+        android:background="#00FFFFFF"
         android:text="Buy"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/buyButton3"
         app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
 
     <Button
         android:id="@+id/buyButton5"
-        android:layout_width="95dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:background="#00FFFFFF"
         android:text="Buy"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buyButton1" />
 
     <Button
         android:id="@+id/buyButton6"
-        android:layout_width="95dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
+        android:background="#00FFFFFF"
         android:text="Buy"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/buyButton5"
         app:layout_constraintTop_toBottomOf="@+id/buyButton2" />
 
     <Button
         android:id="@+id/buyButton7"
-        android:layout_width="95dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="Buy"
-        app:layout_constraintStart_toEndOf="@+id/buyButton6"
+        android:background="#00FFFFFF"
+        android:lineSpacingExtra="4sp"
+        android:text="Extra Arm\n+1 Coffee/tap\nCost: 25 Coffee"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/buyButton8"
         app:layout_constraintTop_toBottomOf="@+id/buyButton3" />
 
     <Button
         android:id="@+id/buyButton8"
-        android:layout_width="95dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:background="#00FFFFFF"
         android:text="Buy"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buyButton7"
         app:layout_constraintTop_toBottomOf="@+id/buyButton4" />
 
     <Button
         android:id="@+id/buyButton9"
         android:layout_width="280dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="16dp"
-        android:text="Void"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:text="Buy"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/buyImage1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="@+id/buyButton1"
+        app:layout_constraintTop_toTopOf="@+id/buyButton1"
+        app:srcCompat="@drawable/gamebutton" />
+
+    <ImageView
+        android:id="@+id/buyImage2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="@+id/buyButton2"
+        app:layout_constraintTop_toTopOf="@+id/buyButton2"
+        app:srcCompat="@drawable/gamebutton" />
+
+    <ImageView
+        android:id="@+id/buyImage3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/buyButton3"
+        app:layout_constraintTop_toTopOf="@+id/buyButton3"
+        app:srcCompat="@drawable/gamebutton" />
+
+    <ImageView
+        android:id="@+id/buyImage4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/buyButton4"
+        app:layout_constraintTop_toTopOf="@+id/buyButton4"
+        app:srcCompat="@drawable/gamebutton" />
+
+    <ImageView
+        android:id="@+id/buyImage5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="@+id/buyButton5"
+        app:layout_constraintTop_toTopOf="@+id/buyButton5"
+        app:srcCompat="@drawable/gamebutton" />
+
+    <ImageView
+        android:id="@+id/buyImage6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="@+id/buyButton6"
+        app:layout_constraintTop_toTopOf="@+id/buyButton6"
+        app:srcCompat="@drawable/gamebutton" />
+
+    <ImageView
+        android:id="@+id/buyImage7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/buyButton7"
+        app:layout_constraintTop_toTopOf="@+id/buyButton7"
+        app:srcCompat="@drawable/gamebutton" />
+
+    <ImageView
+        android:id="@+id/buyImage8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/buyButton8"
+        app:layout_constraintTop_toTopOf="@+id/buyButton8"
+        app:srcCompat="@drawable/gamebutton" />
+
+    <ImageView
+        android:id="@+id/buyImage9"
+        android:layout_width="280dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="@+id/buyButton4"
+        app:layout_constraintTop_toTopOf="@+id/buyButton4"
+        app:srcCompat="@drawable/gamebutton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
