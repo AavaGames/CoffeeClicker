@@ -71,7 +71,7 @@ public class GameThread extends Thread
                 }
 
                 ACTUAL_FPS = (int) (1 / deltaTime);
-                Log.d("Test", "FPS = " + ACTUAL_FPS + " - DeltaTime = " + deltaTime);
+                //Log.d("Test", "FPS = " + ACTUAL_FPS + " - DeltaTime = " + deltaTime);
             }
         }
     }

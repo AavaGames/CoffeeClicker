@@ -24,7 +24,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView coffeeText;
 
-    ImageButton coffeeButton;
+    ImageButton coffeeAddButton;
+    Button buyButton1;
+    Button buyButton7;
+
+    CoffeeButton coffeeButton1;
+    CoffeeButton coffeeButton7;
 
     ImageView backgroundImage;
 
@@ -49,7 +54,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         coffeeText = (TextView)findViewById(R.id.coffeeText);
 
         //Buttons
-        coffeeButton = (ImageButton)findViewById(R.id.coffeeButton);
+        coffeeAddButton = (ImageButton)findViewById(R.id.coffeeButton);
+        buyButton1 = (Button)findViewById(R.id.buyButton1);
+        buyButton7 = (Button)findViewById(R.id.buyButton7);
 
         //Images
         backgroundImage = (ImageView)findViewById(R.id.backgroundImage);
@@ -58,7 +65,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         backgroundImage.setImageBitmap(bmp);
 
         //Listeners
-        coffeeButton.setOnClickListener(this);
+        coffeeAddButton.setOnClickListener(this);
+        buyButton1.setOnClickListener(this);
+        buyButton7.setOnClickListener(this);
+
+        //CoffeeButton Setup
+        coffeeButton1 = new CoffeeButton(coffee, buyButton1, CoffeeButton.ButtonType.PerSecond, 1, 25, 50,
+                "Coffee Maker\n+1 Coffee/s\nCost: ",
+                "\nCoffee");
+
+        coffeeButton7 = new CoffeeButton(coffee, buyButton7, CoffeeButton.ButtonType.PerTap, 1, 50, 75,
+                "Extra Arm\n+1 Coffee/tap\nCost: ",
+                "\nCoffee");
 
         gameThread = new GameThread(gameActivity);
     }
@@ -120,7 +138,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.coffeeButton:
                 coffee.Tap();
                 break;
-            default:
+            case R.id.buyButton1:
+                coffeeButton1.ButtonClick();
+                break;
+            case R.id.buyButton7:
+                coffeeButton7.ButtonClick();
                 break;
         }
     }
