@@ -2,47 +2,47 @@ package com.example.coffeeclicker;
 
 public class Coffee
 {
-    static int coffee;
+    static long coffee;
 
-    int coffeePerTap = 1;
-    int coffeePerSecond = 0;
+    long coffeePerTap = 1;
+    long coffeePerSecond = 0;
 
     public Coffee()
     {
         coffee = 1;
     }
 
-    public void Set(int amount)
+    public void Set(long amount)
     {
         coffee = amount;
     }
 
-    public void Add(int amount)
+    public void Add(long amount)
     {
         coffee += amount;
     }
 
-    public void Subtract(int amount)
+    public void Subtract(long amount)
     {
         coffee -= amount;
     }
 
-    public void AddPerTap(int amount)
+    public void AddPerTap(long amount)
     {
         coffeePerTap += amount;
     }
 
-    public void AddPerSecond(int amount)
+    public void AddPerSecond(long amount)
     {
         coffeePerSecond += amount;
     }
 
-    public void MultiplyPerTap(int amount)
+    public void MultiplyPerTap(long amount)
     {
         coffeePerTap *= amount;
     }
 
-    public void MultiplyPerSecond(int amount)
+    public void MultiplyPerSecond(long amount)
     {
         coffeePerSecond *= amount;
     }
@@ -57,7 +57,7 @@ public class Coffee
         coffee += (coffeePerSecond);
     }
 
-    public int GetCoffee()
+    public long GetCoffee()
     {
         return coffee;
     }

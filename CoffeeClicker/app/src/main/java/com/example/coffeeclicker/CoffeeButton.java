@@ -15,8 +15,8 @@ public class CoffeeButton
 
     public String title;
 
-    public int cost;
-    public int costIncrement;
+    public long cost;
+    public float costPercentageIncrement;
 
     public int increasePer;
     private static int laborCapacity = 0;
@@ -25,14 +25,14 @@ public class CoffeeButton
     public ButtonType buttonType;
 
     public CoffeeButton(Coffee cof, Button butto, ButtonType type, int variableIncrease,
-                        int price, int priceIncrement, String name)
+                        int price, float pricePercentageIncrement, String name)
     {
         coffee = cof;
         button = butto;
         buttonType = type;
 
         cost = price;
-        costIncrement = priceIncrement;
+        costPercentageIncrement = pricePercentageIncrement;
         title = name;
 
         increasePer = variableIncrease;
@@ -81,7 +81,7 @@ public class CoffeeButton
 
     private void IncrementCost()
     {
-        cost += costIncrement;
+        cost = (long)((float)cost * costPercentageIncrement);
     }
 
     public void ButtonClick()
@@ -119,11 +119,11 @@ public class CoffeeButton
         }
         else if (buttonType == ButtonType.MultiplyTap)
         {
-            coffee.MultiplyPerSecond(increasePer);
+            coffee.MultiplyPerTap(increasePer);
         }
         else if (buttonType == ButtonType.MultiplySecond)
         {
-            coffee.MultiplyPerTap(increasePer);
+            coffee.MultiplyPerSecond(increasePer);
         }
         else if (buttonType == ButtonType.Sweatshop)
         {

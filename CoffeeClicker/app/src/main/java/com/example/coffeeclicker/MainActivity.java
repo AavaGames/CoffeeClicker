@@ -14,8 +14,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 {
     Button Play;
 
-    ImageView imageView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -27,11 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Play = (Button)findViewById(R.id.buttonPlay);
         Play.setOnClickListener(this);
         Play.setVisibility(View.VISIBLE);
-
-        imageView = (ImageView)findViewById(R.id.backgroundImage);
-        Bitmap bmp = BitmapFactory.decodeResource(this.getResources(), R.drawable.background);
-        bmp = Bitmap.createScaledBitmap(bmp, bmp.getWidth(), bmp.getHeight(), false);
-        imageView.setImageBitmap(bmp);
     }
 
     @Override

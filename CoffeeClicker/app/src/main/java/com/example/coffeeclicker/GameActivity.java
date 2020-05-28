@@ -24,6 +24,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView coffeeText;
     TextView tapText;
+    TextView avgTapText;
     TextView secondText;
 
     ImageButton coffeeAddButton;
@@ -47,10 +48,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     CoffeeButton coffeeButton8;
     CoffeeButton coffeeButton9;
 
-    ImageView backgroundImage;
-
     float secondTimer = 0;
 
+    private long totalTaps = 0;
+    private double totalTime = 0;
+    private long averageTaps = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +71,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         //Texts
         coffeeText = (TextView)findViewById(R.id.coffeeText);
         tapText = (TextView)findViewById(R.id.tapText);
+        avgTapText = (TextView)findViewById(R.id.avgTapText);
         secondText = (TextView)findViewById(R.id.secondText);
 
         //Buttons
@@ -82,12 +85,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         buyButton7 = (Button)findViewById(R.id.buyButton7);
         buyButton8 = (Button)findViewById(R.id.buyButton8);
         buyButton9 = (Button)findViewById(R.id.buyButton9);
-
-        //Images
-        backgroundImage = (ImageView)findViewById(R.id.backgroundImage);
-        Bitmap bmp = BitmapFactory.decodeResource(this.getResources(), R.drawable.background);
-        bmp = Bitmap.createScaledBitmap(bmp, bmp.getWidth(), bmp.getHeight(), false);
-        backgroundImage.setImageBitmap(bmp);
 
         //Listeners
         coffeeAddButton.setOnClickListener(this);
@@ -103,45 +100,45 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         //CoffeeButton Setup
         coffeeButton1 = new CoffeeButton(coffee, buyButton1,
-                CoffeeButton.ButtonType.PerSecond, 1,
-                10, 8,
+                CoffeeButton.ButtonType.PerSecond, 10,
+                10, 1.5f,
                 "Coffee Maker");
         coffeeButton2 = new CoffeeButton(coffee, buyButton2,
-                CoffeeButton.ButtonType.PerSecond, 5,
-                100, 43,
+                CoffeeButton.ButtonType.PerSecond, 50,
+                50, 1.3f,
                 "Motivated Worker");
         coffeeButton5 = new CoffeeButton(coffee, buyButton5,
                 CoffeeButton.ButtonType.Sweatshop, 10,
-                10000, 2500,
+                10000, 1.25f,
                 "Sweatshop");
         coffeeButton6 = new CoffeeButton(coffee, buyButton6,
-                CoffeeButton.ButtonType.Slave, 30,
-                10, 1,
+                CoffeeButton.ButtonType.Slave, 300,
+                10, 1.1f,
                 "Slave Labor");
 
         coffeeButton5.coffeeButtonChild = coffeeButton6;
 
         coffeeButton3 = new CoffeeButton(coffee, buyButton3,
-                CoffeeButton.ButtonType.PerTap, 1,
-                50, 75,
+                CoffeeButton.ButtonType.PerTap, 10,
+                100, 1.75f,
                 "Extra Arm");
         coffeeButton7 = new CoffeeButton(coffee, buyButton7,
-                CoffeeButton.ButtonType.PerTap, 15,
-                700, 628,
+                CoffeeButton.ButtonType.PerTap, 150,
+                700, 1.2f,
                 "Hard Amphetamines");
 
         coffeeButton4 = new CoffeeButton(coffee, buyButton4,
                 CoffeeButton.ButtonType.MultiplySecond, 2,
-                1000, 1358,
+                5000, 3.0f,
                 "Rent a timeline");
         coffeeButton8 = new CoffeeButton(coffee, buyButton8,
                 CoffeeButton.ButtonType.MultiplyTap, 2,
-                500, 628,
+                4500, 3.0f,
                 "Clone Thyself");
 
         coffeeButton9 = new CoffeeButton(coffee, buyButton9,
                 CoffeeButton.ButtonType.Horror, 20,
-                1000000000, 0,
+                100000000, 0,
                 "Release the Eldrich Horror");
 
         gameThread = new GameThread(gameActivity);
@@ -167,13 +164,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         makeFullScreen();
     }
 
-    public void Update()
-    {
-        //Log.d("CoffeeError", "Update - " + secondTimer);
-        UpdateUI();
-        CoffeeOverTime();
-    }
-
     private void makeFullScreen(){
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -184,19 +174,55 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
+    public void Update()
+    {
+        runOnUiThread(
+            new Runnable() {
+                @Override
+                public void run()
+                {
+                    totalTime += gameThread.DeltaTime();
+
+                    AverageTaps();
+                    SecondCounter();
+                    UpdateUI();
+                    //Log.d("CoffeeError", "Update - " + secondTimer);
+                }
+            }
+        );
+    }
+
+    private void AverageTaps()
+    {
+        averageTaps = (long)((double)totalTaps / totalTime);
+    }
+
+    private void SecondCounter()
+    {
+        secondTimer += gameThread.DeltaTime();
+        if (secondTimer > 1) {
+
+            //Code that happens once a second
+            coffee.OverTime();
+            if (coffee.GetCoffee() > coffeeButton9.cost)
+            {
+                coffeeButton9.ButtonAvailable(true);
+            }
+            else
+            {
+                coffeeButton9.ButtonAvailable(false);
+            }
+
+            secondTimer = 0;
+        }
+    }
+
     private void UpdateUI()
     {
         coffeeText.setText("Coffee - " + coffee.GetCoffee());
         tapText.setText(coffee.coffeePerTap + "/tap");
+        avgTapText.setText(averageTaps + " taps/s");
         secondText.setText(coffee.coffeePerSecond + "/sec");
-    }
-
-    private void CoffeeOverTime() {
-        secondTimer += gameThread.DeltaTime();
-        if (secondTimer > 1) {
-            coffee.OverTime();
-            secondTimer = 0;
-        }
     }
 
     @Override
@@ -204,6 +230,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.coffeeButton:
+                totalTaps++;
                 coffee.Tap();
                 break;
             case R.id.buyButton1:
