@@ -13,30 +13,40 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/background" />
 
     <Button
         android:id="@+id/buttonPlay"
         android:layout_width="325dp"
         android:layout_height="165dp"
-        android:layout_marginBottom="56dp"
-        android:text="Unleash The Coffee"
+        android:layout_marginBottom="52dp"
+        android:background="#80000000"
+        android:fontFamily="serif"
+        android:text="Brew The Coffee!"
         android:textAllCaps="true"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="399dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="104dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="372dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Coffee Clicker"
+        android:textColor="#323232"
+        android:textSize="55sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

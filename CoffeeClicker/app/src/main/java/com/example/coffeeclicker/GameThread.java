@@ -26,6 +26,11 @@ public class GameThread extends Thread
     public final int TARGET_FPS = 60;
     public static int ACTUAL_FPS = 0;
 
+    private boolean debug = false;
+    private int totalFPS = 0;
+    private int totalFrames = 0;
+    private int averageFPS = 0;
+
     public GameThread(GameActivity activity)
     {
         running = true;
@@ -50,28 +55,43 @@ public class GameThread extends Thread
                 endOfCodeTime = System.currentTimeMillis();
                 long codeExecutionTime = endOfCodeTime - startOfFrameTime;
 
-                if (codeExecutionTime < maxFrameTimeInMilliseconds) {
+                if (codeExecutionTime < maxFrameTimeInMilliseconds)
+                {
                     long frameGoal = 1000 / TARGET_FPS;
                     long sleepTime = frameGoal - codeExecutionTime;
 
-                    try {
-                        Thread.sleep(sleepTime);
-                    } catch (Exception ex) {
-                        Log.e("Error", "EXCEPTION CAUGHT WHILE ATTEMPTING TO PUT THREAD TO SLEEP");
-                        ex.printStackTrace();
+                    if (sleepTime > 0)
+                    {
+                        try {
+                            Thread.sleep(sleepTime);
+                        } catch (Exception ex) {
+                            Log.e("Error", "EXCEPTION CAUGHT WHILE ATTEMPTING TO PUT THREAD TO SLEEP");
+                            ex.printStackTrace();
+                        }
                     }
 
                     endOfFrameTime = System.currentTimeMillis();
 
                     long frameTime = endOfFrameTime - startOfFrameTime;
                     deltaTime = (float) frameTime / 1000;
-                } else {
+                }
+                else
+                {
                     deltaTime = maxFrameTime;
-                    //ACTUAL_FPS = (int)(1000 / deltaTime);
                 }
 
                 ACTUAL_FPS = (int) (1 / deltaTime);
-                //Log.d("Test", "FPS = " + ACTUAL_FPS + " - DeltaTime = " + deltaTime);
+
+                if (debug)
+                {
+                    totalFPS += ACTUAL_FPS;
+                    totalFrames++;
+                    averageFPS = totalFPS / totalFrames;
+                    Log.d("Test", "A" +
+                            "\nFPS = " + ACTUAL_FPS +
+                            "\nAverage FPS = " + averageFPS +
+                            "\nDeltaTime = " + deltaTime);
+                }
             }
         }
     }

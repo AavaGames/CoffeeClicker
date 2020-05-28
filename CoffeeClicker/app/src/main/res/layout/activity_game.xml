@@ -9,50 +9,75 @@
 
     <ImageView
         android:id="@+id/backgroundImage"
-        android:layout_width="409dp"
-        android:layout_height="730dp"
+        android:layout_width="471dp"
+        android:layout_height="765dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/coffeeText"
         android:layout_width="350dp"
         android:layout_height="35dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif"
         android:gravity="center_vertical"
         android:text="Coffee - 1,000,009,209,000,000"
         android:textAllCaps="false"
-        android:textSize="19sp"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tapText"
+        android:layout_width="200dp"
+        android:layout_height="18dp"
+        android:fontFamily="sans-serif"
+        android:gravity="right|center_vertical"
+        android:text="+10/tap"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/coffeeText"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeText" />
+
+    <TextView
+        android:id="@+id/secondText"
+        android:layout_width="200dp"
+        android:layout_height="18dp"
+        android:fontFamily="sans-serif"
+        android:gravity="right|center_vertical"
+        android:text="+50/sec"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/tapText"
+        app:layout_constraintTop_toBottomOf="@+id/tapText" />
 
     <ImageButton
         android:id="@+id/coffeeButton"
         android:layout_width="385dp"
         android:layout_height="350dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/coffeeText"
+        app:layout_constraintTop_toBottomOf="@+id/secondText"
         app:srcCompat="@drawable/coffee" />
 
     <Button
         android:id="@+id/buyButton1"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
-        android:text="Coffee Maker\n+1 Coffee/s\nCost: 25\nCoffee"
+        android:text="Coffee Maker"
         android:textColor="#FFFFFF"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,10 +87,9 @@
         android:id="@+id/buyButton2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
-        android:text="Coffee Maker\n+1 Coffee/s\nCost: 25 Coffee"
+        android:text="Motivated Worker"
         android:textColor="#FFFFFF"
         android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/buyButton1"
@@ -75,10 +99,11 @@
         android:id="@+id/buyButton3"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
-        android:text="Buy"
+        android:lineSpacingExtra="4sp"
+        android:text="Extra Arm"
         android:textColor="#FFFFFF"
+        android:textSize="11sp"
         app:layout_constraintEnd_toStartOf="@+id/buyImage4"
         app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
 
@@ -86,10 +111,11 @@
         android:id="@+id/buyButton4"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
         android:background="#00FFFFFF"
-        android:text="Buy"
+        android:lineSpacingExtra="4sp"
+        android:text="Rent a Timeline"
         android:textColor="#FFFFFF"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coffeeButton" />
 
@@ -98,8 +124,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
-        android:text="Buy"
+        android:lineSpacingExtra="4sp"
+        android:text="Sweatshop"
         android:textColor="#FFFFFF"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buyButton1" />
 
@@ -108,8 +136,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
-        android:text="Buy"
-        android:textColor="#FFFFFF"
+        android:lineSpacingExtra="4sp"
+        android:text="Slave Labor"
+        android:textColor="#4DFFFFFF"
+        android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/buyButton5"
         app:layout_constraintTop_toBottomOf="@+id/buyButton2" />
 
@@ -119,7 +149,7 @@
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
-        android:text="Extra Arm\n+1 Coffee/tap\nCost: 25\nCoffee"
+        android:text="Hard Amphetamines"
         android:textColor="#FFFFFF"
         android:textSize="11sp"
         app:layout_constraintEnd_toStartOf="@+id/buyButton8"
@@ -130,8 +160,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
-        android:text="Buy"
+        android:lineSpacingExtra="4sp"
+        android:text="Clone Thyself"
         android:textColor="#FFFFFF"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buyButton4" />
 
@@ -139,12 +171,15 @@
         android:id="@+id/buyButton9"
         android:layout_width="280dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:background="#00FFFFFF"
-        android:text="Buy"
+        android:lineSpacingExtra="4sp"
+        android:text="Release The Eldrich Horror"
         android:textColor="#FFFFFF"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -215,12 +250,9 @@
         android:id="@+id/buyImage9"
         android:layout_width="280dp"
         android:layout_height="70dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
         android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="@+id/buyButton4"
-        app:layout_constraintTop_toTopOf="@+id/buyButton4"
+        app:layout_constraintStart_toStartOf="@+id/buyButton9"
+        app:layout_constraintTop_toTopOf="@+id/buyButton9"
         app:srcCompat="@drawable/gamebutton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

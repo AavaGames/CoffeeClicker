@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         imageView = (ImageView)findViewById(R.id.backgroundImage);
         Bitmap bmp = BitmapFactory.decodeResource(this.getResources(), R.drawable.background);
-        bmp = Bitmap.createScaledBitmap(bmp, bmp.getWidth()*5, bmp.getHeight()*5, false);
+        bmp = Bitmap.createScaledBitmap(bmp, bmp.getWidth(), bmp.getHeight(), false);
         imageView.setImageBitmap(bmp);
     }
 

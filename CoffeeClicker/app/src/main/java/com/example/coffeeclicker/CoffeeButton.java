@@ -1,27 +1,31 @@
 package com.example.coffeeclicker;
 
+import android.graphics.Color;
 import android.util.Log;
 import android.widget.Button;
+
+import androidx.annotation.ColorInt;
 
 public class CoffeeButton
 {
     private Coffee coffee;
 
     public Button button;
+    public CoffeeButton coffeeButtonChild;
 
-    public String text1;
-    public String text2;
+    public String title;
 
     public int cost;
     public int costIncrement;
 
-    public int increasePerTap;
-    public int increasePerSecond;
+    public int increasePer;
+    private static int laborCapacity = 0;
 
-    public enum ButtonType { PerTap, PerSecond }
+    public enum ButtonType { PerTap, PerSecond, MultiplyTap, MultiplySecond, Sweatshop, Slave, Horror }
     public ButtonType buttonType;
 
-    public CoffeeButton(Coffee cof, Button butto, ButtonType type, int variableIncrease, int price, int priceIncrement, String preCostText, String postCostText)
+    public CoffeeButton(Coffee cof, Button butto, ButtonType type, int variableIncrease,
+                        int price, int priceIncrement, String name)
     {
         coffee = cof;
         button = butto;
@@ -29,30 +33,50 @@ public class CoffeeButton
 
         cost = price;
         costIncrement = priceIncrement;
-        text1 = preCostText;
-        text2 = postCostText;
+        title = name;
 
-        if (buttonType == ButtonType.PerTap)
-        {
-            increasePerTap = variableIncrease;
-        }
-        else
-        {
-            increasePerSecond = variableIncrease;
-        }
+        increasePer = variableIncrease;
 
         UpdateText();
     }
 
     private void UpdateButton()
     {
-        IncrementCost();
         UpdateText();
     }
 
     private void UpdateText()
     {
-        button.setText(text1 + cost + text2);
+        String text = title + "\n";
+        if (buttonType == ButtonType.Sweatshop)
+        {
+            text = text + "Purchase " + increasePer + " Labor\n";
+        }
+        else if (!(buttonType == ButtonType.Horror))
+        {
+            if (buttonType == ButtonType.MultiplySecond || buttonType == ButtonType.MultiplyTap)
+            {
+                text = text + "x";
+            }
+            else
+            {
+                text = text + "+";
+            }
+
+            text = text + increasePer + " Coffee/";
+
+            if (buttonType == ButtonType.PerTap  || buttonType == ButtonType.MultiplyTap)
+            {
+                text = text + "tap\n";
+            }
+            else
+            {
+                text = text + "sec\n";
+            }
+        }
+        text = text + "Cost: " + cost;
+
+        button.setText(text);
     }
 
     private void IncrementCost()
@@ -62,32 +86,83 @@ public class CoffeeButton
 
     public void ButtonClick()
     {
-        Log.d("Test", "ButtonClicked");
+        if (buttonType == ButtonType.Slave && laborCapacity < 1)
+        {
+            Log.d("Test", "Not enough capacity for " + title);
+            //Play Error Sound
+            return;
+        }
+
         if (Coffee.coffee >= cost)
         {
-            Log.d("Test", "Button Purchase");
-            if (buttonType == ButtonType.PerTap)
-            {
-                BuyTap();
-            }
-            else if (buttonType == ButtonType.PerSecond)
-            {
-                BuySecond();
-            }
-
+            Buy();
             UpdateButton();
+
+            Log.d("Test", "Purchased " + title);
+        }
+        else
+        {
+            Log.d("Test", "Not enough money for " + title);
+            //Play Error Sound
         }
     }
 
-    private void BuyTap()
+    private void Buy()
     {
-        coffee.AddPerTap(increasePerTap);
+        if (buttonType == ButtonType.PerTap)
+        {
+            coffee.AddPerTap(increasePer);
+        }
+        else if (buttonType == ButtonType.PerSecond)
+        {
+            coffee.AddPerSecond(increasePer);
+        }
+        else if (buttonType == ButtonType.MultiplyTap)
+        {
+            coffee.MultiplyPerSecond(increasePer);
+        }
+        else if (buttonType == ButtonType.MultiplySecond)
+        {
+            coffee.MultiplyPerTap(increasePer);
+        }
+        else if (buttonType == ButtonType.Sweatshop)
+        {
+            laborCapacity += increasePer;
+            //Reference to slave button
+            coffeeButtonChild.ButtonAvailable(true);
+        }
+        else if (buttonType == ButtonType.Slave)
+        {
+            Log.i("Slave", "Cap - " + laborCapacity);
+            if (laborCapacity != 0)
+            {
+                laborCapacity--;
+                coffee.AddPerSecond(increasePer);
+            }
+            Log.i("Slave", "After - " + laborCapacity);
+            if (laborCapacity < 1)
+            {
+                ButtonAvailable(false);
+            }
+        }
+        else if (buttonType == ButtonType.Horror)
+        {
+
+        }
+
         coffee.Subtract(cost);
+        IncrementCost();
     }
 
-    private void BuySecond()
+    public void ButtonAvailable(boolean show)
     {
-        coffee.AddPerSecond(increasePerSecond);
-        coffee.Subtract(cost);
+        if (show)
+        {
+            button.setTextColor(0xFFFFFFFF);
+        }
+        else
+        {
+            button.setTextColor(0x4DFFFFFF);
+        }
     }
 }

@@ -9,7 +9,7 @@ public class Coffee
 
     public Coffee()
     {
-        coffee = 0;
+        coffee = 1;
     }
 
     public void Set(int amount)
@@ -37,6 +37,16 @@ public class Coffee
         coffeePerSecond += amount;
     }
 
+    public void MultiplyPerTap(int amount)
+    {
+        coffeePerTap *= amount;
+    }
+
+    public void MultiplyPerSecond(int amount)
+    {
+        coffeePerSecond *= amount;
+    }
+
     public void Tap()
     {
         coffee += coffeePerTap;
@@ -44,7 +54,7 @@ public class Coffee
 
     public void OverTime()
     {
-        coffee += coffeePerSecond;
+        coffee += (coffeePerSecond);
     }
 
     public int GetCoffee()
