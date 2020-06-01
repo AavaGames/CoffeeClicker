@@ -21,6 +21,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public static GameActivity gameActivity;
     private GameThread gameThread;
     private Coffee coffee;
+    private FinaleAnimation finale;
+
+    public enum GameState { active, finale }
+    public GameState gameState = GameState.active;
 
     TextView coffeeText;
     TextView tapText;
@@ -48,6 +52,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     CoffeeButton coffeeButton8;
     CoffeeButton coffeeButton9;
 
+    public TextView texts[] = new TextView[4];
+    public Button buyButtons[] = new Button[9];
+    public ImageView buttonImages[] = new ImageView[9];
+
     float secondTimer = 0;
 
     private long totalTaps = 0;
@@ -67,6 +75,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_game);
 
         coffee = new Coffee();
+        finale = new FinaleAnimation(gameActivity);
 
         //Texts
         coffeeText = (TextView)findViewById(R.id.coffeeText);
@@ -140,6 +149,28 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 CoffeeButton.ButtonType.Horror, 20,
                 100000000, 0,
                 "Release the Eldrich Horror");
+        coffeeButton9.gameActivity = this;
+
+        //References FinaleAnimation
+        texts[0] = (TextView) findViewById(R.id.coffeeText);
+        texts[1] = (TextView) findViewById(R.id.tapText);
+        texts[2] = (TextView) findViewById(R.id.avgTapText);
+        texts[3] = (TextView) findViewById(R.id.secondText);
+
+        buyButtons[0] = buyButton1;
+        buyButtons[1] = buyButton2;
+        buyButtons[2] = buyButton3;
+        buyButtons[3] = buyButton4;
+        buyButtons[4] = buyButton5;
+        buyButtons[5] = buyButton6;
+        buyButtons[6] = buyButton7;
+        buyButtons[7] = buyButton8;
+        buyButtons[8] = buyButton9;
+
+        for (int i = 1; i < 10; i++) {
+            int id = getResources().getIdentifier("buyImage"+i, "id", getPackageName());
+            buttonImages[i-1] = (ImageView)findViewById(id);
+        }
 
         gameThread = new GameThread(gameActivity);
     }
@@ -183,10 +214,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     totalTime += gameThread.DeltaTime();
 
-                    AverageTaps();
-                    SecondCounter();
-                    UpdateUI();
-                    //Log.d("CoffeeError", "Update - " + secondTimer);
+                    if (gameState == GameState.active)
+                    {
+                        AverageTaps();
+                        SecondCounter();
+                        UpdateUI();
+                    }
+                    else if (gameState == GameState.finale)
+                    {
+                        finale.Update(gameThread.DeltaTime());
+                    }
+                    //Log.d("Test", "Update - " + secondTimer);
                 }
             }
         );
@@ -204,7 +242,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             //Code that happens once a second
             coffee.OverTime();
-            if (coffee.GetCoffee() > coffeeButton9.cost)
+            if (coffee.GetCoffee() >= coffeeButton9.cost)
             {
                 coffeeButton9.ButtonAvailable(true);
             }
@@ -226,40 +264,52 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId())
+    public void onClick(View v)
+    {
+        if (gameState == GameState.active)
         {
-            case R.id.coffeeButton:
-                totalTaps++;
-                coffee.Tap();
-                break;
-            case R.id.buyButton1:
-                coffeeButton1.ButtonClick();
-                break;
-            case R.id.buyButton2:
-                coffeeButton2.ButtonClick();
-                break;
-            case R.id.buyButton3:
-                coffeeButton3.ButtonClick();
-                break;
-            case R.id.buyButton4:
-                coffeeButton4.ButtonClick();
-                break;
-            case R.id.buyButton5:
-                coffeeButton5.ButtonClick();
-                break;
-            case R.id.buyButton6:
-                coffeeButton6.ButtonClick();
-                break;
-            case R.id.buyButton7:
-                coffeeButton7.ButtonClick();
-                break;
-            case R.id.buyButton8:
-                coffeeButton8.ButtonClick();
-                break;
-            case R.id.buyButton9:
-                coffeeButton9.ButtonClick();
-                break;
+            switch (v.getId())
+            {
+                case R.id.coffeeButton:
+                    totalTaps++;
+                    coffee.Tap();
+                    break;
+                case R.id.buyButton1:
+                    coffeeButton1.ButtonClick();
+                    break;
+                case R.id.buyButton2:
+                    coffeeButton2.ButtonClick();
+                    break;
+                case R.id.buyButton3:
+                    coffeeButton3.ButtonClick();
+                    break;
+                case R.id.buyButton4:
+                    coffeeButton4.ButtonClick();
+                    break;
+                case R.id.buyButton5:
+                    coffeeButton5.ButtonClick();
+                    break;
+                case R.id.buyButton6:
+                    coffeeButton6.ButtonClick();
+                    break;
+                case R.id.buyButton7:
+                    coffeeButton7.ButtonClick();
+                    break;
+                case R.id.buyButton8:
+                    coffeeButton8.ButtonClick();
+                    break;
+                case R.id.buyButton9:
+                    coffeeButton9.ButtonClick();
+                    break;
+            }
         }
+    }
+
+    public void StartFinale()
+    {
+        UpdateUI();
+
+        gameState = GameState.finale;
+        finale.Start();
     }
 }

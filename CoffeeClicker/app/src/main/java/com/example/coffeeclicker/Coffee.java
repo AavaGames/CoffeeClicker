@@ -9,7 +9,7 @@ public class Coffee
 
     public Coffee()
     {
-        coffee = 1;
+        coffee = 99999999;
     }
 
     public void Set(long amount)

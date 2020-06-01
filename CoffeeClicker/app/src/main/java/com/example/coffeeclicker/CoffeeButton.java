@@ -9,6 +9,7 @@ import androidx.annotation.ColorInt;
 public class CoffeeButton
 {
     private Coffee coffee;
+    public GameActivity gameActivity;
 
     public Button button;
     public CoffeeButton coffeeButtonChild;
@@ -145,13 +146,18 @@ public class CoffeeButton
                 ButtonAvailable(false);
             }
         }
-        else if (buttonType == ButtonType.Horror)
+
+        if (buttonType == ButtonType.Horror)
         {
-
+            coffee.Subtract(cost);
+            cost = 434343434;
+            gameActivity.StartFinale();
         }
-
-        coffee.Subtract(cost);
-        IncrementCost();
+        else
+        {
+            coffee.Subtract(cost);
+            IncrementCost();
+        }
     }
 
     public void ButtonAvailable(boolean show)
