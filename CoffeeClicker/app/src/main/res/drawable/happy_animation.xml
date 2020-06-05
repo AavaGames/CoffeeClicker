@@ -1,0 +1,21 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="true">
+    <item android:drawable="@drawable/happy1" android:duration="4000"/>
+    <item android:drawable="@drawable/happy2" android:duration="250"/>
+    <item android:drawable="@drawable/happy3" android:duration="250"/>
+    <item android:drawable="@drawable/happy4" android:duration="250"/>
+    <item android:drawable="@drawable/happy5" android:duration="250"/>
+    <item android:drawable="@drawable/happy6" android:duration="500"/>
+    <item android:drawable="@drawable/happy7" android:duration="500"/>
+    <item android:drawable="@drawable/happy8" android:duration="500"/>
+    <item android:drawable="@drawable/happy9" android:duration="250"/>
+    <item android:drawable="@drawable/happy10" android:duration="250"/>
+    <item android:drawable="@drawable/happy11" android:duration="250"/>
+    <item android:drawable="@drawable/happy12" android:duration="250"/>
+    <item android:drawable="@drawable/happy13" android:duration="250"/>
+    <item android:drawable="@drawable/happy14" android:duration="250"/>
+    <item android:drawable="@drawable/happy15" android:duration="250"/>
+    <item android:drawable="@drawable/happy16" android:duration="250"/>
+    <item android:drawable="@drawable/happy17" android:duration="250"/>
+    <item android:drawable="@drawable/happy18" android:duration="250"/>
+    <item android:drawable="@drawable/happy19" android:duration="250"/>
+</animation-list>

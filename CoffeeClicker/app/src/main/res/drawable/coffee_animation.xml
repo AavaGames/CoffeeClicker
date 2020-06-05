@@ -1,0 +1,18 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="true">
+    <item android:drawable="@drawable/coffee1" android:duration="250" />
+    <item android:drawable="@drawable/coffee2" android:duration="250" />
+    <item android:drawable="@drawable/coffee3" android:duration="250" />
+    <item android:drawable="@drawable/coffee4" android:duration="250" />
+    <item android:drawable="@drawable/coffee5" android:duration="250" />
+    <item android:drawable="@drawable/coffee6" android:duration="250" />
+    <item android:drawable="@drawable/coffee7" android:duration="250" />
+    <item android:drawable="@drawable/coffee8" android:duration="250" />
+    <item android:drawable="@drawable/coffee9" android:duration="250" />
+    <item android:drawable="@drawable/coffee10" android:duration="250" />
+    <item android:drawable="@drawable/coffee11" android:duration="250" />
+    <item android:drawable="@drawable/coffee12" android:duration="250" />
+    <item android:drawable="@drawable/coffee13" android:duration="250" />
+    <item android:drawable="@drawable/coffee14" android:duration="250" />
+    <item android:drawable="@drawable/coffee15" android:duration="250" />
+    <item android:drawable="@drawable/blank" android:duration="250" />
+</animation-list>

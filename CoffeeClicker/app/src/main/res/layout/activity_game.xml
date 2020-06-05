@@ -19,12 +19,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.481"
-        app:srcCompat="@drawable/background" />
+        app:srcCompat="@drawable/background1" />
+
+    <ImageView
+        android:id="@+id/happyImage"
+        android:layout_width="475dp"
+        android:layout_height="469dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:alpha="1"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeText"
+        app:srcCompat="@drawable/happy1" />
+
+    <TextView
+        android:id="@+id/poemText"
+        android:layout_width="365dp"
+        android:layout_height="278dp"
+        android:layout_marginTop="256dp"
+        android:fontFamily="sans-serif"
+        android:gravity="top"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/coffeeText"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
+        android:layout_width="369dp"
+        android:layout_height="38dp"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif"
         android:gravity="center_vertical"
@@ -38,58 +66,58 @@
 
     <TextView
         android:id="@+id/tapText"
-        android:layout_width="160dp"
-        android:layout_height="18dp"
+        android:layout_width="168dp"
+        android:layout_height="26dp"
         android:fontFamily="sans-serif"
         android:gravity="right|center_vertical"
         android:text="+10/tap"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="11sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/coffeeText"
         app:layout_constraintTop_toBottomOf="@+id/coffeeText" />
 
     <TextView
         android:id="@+id/secondText"
-        android:layout_width="160dp"
-        android:layout_height="18dp"
+        android:layout_width="169dp"
+        android:layout_height="27dp"
         android:fontFamily="sans-serif"
         android:gravity="left|center_vertical"
         android:text="+60/sec"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="11sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/coffeeText"
         app:layout_constraintTop_toBottomOf="@+id/coffeeText" />
 
     <TextView
         android:id="@+id/avgTapText"
-        android:layout_width="160dp"
-        android:layout_height="18dp"
+        android:layout_width="166dp"
+        android:layout_height="24dp"
         android:fontFamily="sans-serif"
         android:gravity="right|center_vertical"
         android:text="15 taps/s"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/tapText"
         app:layout_constraintTop_toBottomOf="@+id/tapText" />
 
     <ImageButton
         android:id="@+id/coffeeButton"
-        android:layout_width="337dp"
-        android:layout_height="270dp"
+        android:layout_width="390dp"
+        android:layout_height="350dp"
         android:alpha="1"
         android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avgTapText"
-        app:srcCompat="@drawable/coffee" />
+        app:srcCompat="@drawable/coffee1" />
 
     <Button
         android:id="@+id/buyButton1"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
@@ -101,7 +129,7 @@
 
     <Button
         android:id="@+id/buyButton2"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
@@ -113,7 +141,7 @@
 
     <Button
         android:id="@+id/buyButton3"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
@@ -125,7 +153,7 @@
 
     <Button
         android:id="@+id/buyButton4"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
@@ -137,7 +165,7 @@
 
     <Button
         android:id="@+id/buyButton5"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
@@ -149,7 +177,7 @@
 
     <Button
         android:id="@+id/buyButton6"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
@@ -161,7 +189,7 @@
 
     <Button
         android:id="@+id/buyButton7"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
@@ -173,7 +201,7 @@
 
     <Button
         android:id="@+id/buyButton8"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
@@ -187,19 +215,19 @@
         android:id="@+id/buyButton9"
         android:layout_width="280dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="4dp"
         android:background="#00FFFFFF"
         android:lineSpacingExtra="4sp"
         android:text="Release The Eldrich Horror"
         android:textColor="#4DFFFFFF"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buyButton6" />
 
     <ImageView
         android:id="@+id/buyImage1"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="@+id/buyButton1"
         app:layout_constraintTop_toTopOf="@+id/buyButton1"
@@ -207,7 +235,7 @@
 
     <ImageView
         android:id="@+id/buyImage2"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="@+id/buyButton2"
         app:layout_constraintTop_toTopOf="@+id/buyButton2"
@@ -215,7 +243,7 @@
 
     <ImageView
         android:id="@+id/buyImage3"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@+id/buyButton3"
         app:layout_constraintTop_toTopOf="@+id/buyButton3"
@@ -223,7 +251,7 @@
 
     <ImageView
         android:id="@+id/buyImage4"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@+id/buyButton4"
         app:layout_constraintTop_toTopOf="@+id/buyButton4"
@@ -231,7 +259,7 @@
 
     <ImageView
         android:id="@+id/buyImage5"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="@+id/buyButton5"
         app:layout_constraintTop_toTopOf="@+id/buyButton5"
@@ -239,7 +267,7 @@
 
     <ImageView
         android:id="@+id/buyImage6"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="@+id/buyButton6"
         app:layout_constraintTop_toTopOf="@+id/buyButton6"
@@ -247,7 +275,7 @@
 
     <ImageView
         android:id="@+id/buyImage7"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@+id/buyButton7"
         app:layout_constraintTop_toTopOf="@+id/buyButton7"
@@ -255,7 +283,7 @@
 
     <ImageView
         android:id="@+id/buyImage8"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@+id/buyButton8"
         app:layout_constraintTop_toTopOf="@+id/buyButton8"

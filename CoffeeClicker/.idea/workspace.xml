@@ -55,15 +55,18 @@
   <component name="ProjectId" id="1cH2xeyUWVYN6XI1hbxcWaLokV0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="10160a4dad1d1102" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-28T19:34:09.286Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_5X_API_27" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-06-05T23:18:58.328Z" />
     <property name="android.sdk.path" value="H:/GameDev/Android/AndroidSDK" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="settings.editor.selected.configurable" value="memory.settings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.coffeeclicker" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Video Game Design\Projects\CoffeeClicker\app\src\main\res\drawable" />
     </key>
   </component>
   <component name="RunDashboard">

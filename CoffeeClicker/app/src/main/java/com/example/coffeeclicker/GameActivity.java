@@ -2,6 +2,7 @@ package com.example.coffeeclicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -23,7 +24,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private Coffee coffee;
     private FinaleAnimation finale;
 
-    public enum GameState { active, finale }
+    public enum GameState { active, finale, end }
     public GameState gameState = GameState.active;
 
     TextView coffeeText;
@@ -52,6 +53,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     CoffeeButton coffeeButton8;
     CoffeeButton coffeeButton9;
 
+    public TextView poemText;
     public TextView texts[] = new TextView[4];
     public Button buyButtons[] = new Button[9];
     public ImageView buttonImages[] = new ImageView[9];
@@ -75,7 +77,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_game);
 
         coffee = new Coffee();
-        finale = new FinaleAnimation(gameActivity);
 
         //Texts
         coffeeText = (TextView)findViewById(R.id.coffeeText);
@@ -122,7 +123,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 "Sweatshop");
         coffeeButton6 = new CoffeeButton(coffee, buyButton6,
                 CoffeeButton.ButtonType.Slave, 300,
-                10, 1.1f,
+                10, 1f,
                 "Slave Labor");
 
         coffeeButton5.coffeeButtonChild = coffeeButton6;
@@ -142,7 +143,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 "Rent a timeline");
         coffeeButton8 = new CoffeeButton(coffee, buyButton8,
                 CoffeeButton.ButtonType.MultiplyTap, 2,
-                4500, 3.0f,
+                4500, 1.5f,
                 "Clone Thyself");
 
         coffeeButton9 = new CoffeeButton(coffee, buyButton9,
@@ -152,6 +153,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         coffeeButton9.gameActivity = this;
 
         //References FinaleAnimation
+        poemText = (TextView) findViewById(R.id.poemText);
         texts[0] = (TextView) findViewById(R.id.coffeeText);
         texts[1] = (TextView) findViewById(R.id.tapText);
         texts[2] = (TextView) findViewById(R.id.avgTapText);
@@ -173,6 +175,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         gameThread = new GameThread(gameActivity);
+
+        //ImageView coffeeImage = (ImageView)findViewById(R.id.coffeeImage);
+        ImageView happyImage = (ImageView)findViewById(R.id.happyImage);
+        ImageView backgroundImage = (ImageView)findViewById(R.id.backgroundImage);
+        finale = new FinaleAnimation(gameActivity, coffeeAddButton, backgroundImage, happyImage);
     }
 
     @Override
@@ -303,13 +310,27 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     break;
             }
         }
+        else if (gameState == GameState.end)
+        {
+            if (v.getId() == R.id.buyButton9)
+            {
+                Runtime.getRuntime().exit(0);
+            }
+        }
     }
 
     public void StartFinale()
     {
         UpdateUI();
-
         gameState = GameState.finale;
-        finale.Start();
+    }
+
+    public void End()
+    {
+        buyButton9.setAlpha(1.0f);
+        buttonImages[8].setAlpha(1.0f);
+        buyButton9.setText("Enter Bliss");
+
+        gameState = GameState.end;
     }
 }

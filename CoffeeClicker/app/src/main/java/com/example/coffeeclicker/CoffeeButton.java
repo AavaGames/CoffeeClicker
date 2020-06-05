@@ -151,6 +151,7 @@ public class CoffeeButton
         {
             coffee.Subtract(cost);
             cost = 434343434;
+            button.setTextColor(0xFFF44336);
             gameActivity.StartFinale();
         }
         else

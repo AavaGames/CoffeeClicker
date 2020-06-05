@@ -5,11 +5,11 @@ public class Coffee
     static long coffee;
 
     long coffeePerTap = 1;
-    long coffeePerSecond = 0;
+    long coffeePerSecond = 1000000;
 
     public Coffee()
     {
-        coffee = 99999999;
+        coffee = 10000000;
     }
 
     public void Set(long amount)
